@@ -5,7 +5,7 @@
 		- label: `app=http-server`
 		- replicas: 2
 		- container
-			- docker image: `hatappi/k8s-training:v1.0`
+			- docker image: `hatappi/k8s-training:v1.3`
 			- name: `http-server`
 			- port: `8888`
 			- CMD: `http-server`

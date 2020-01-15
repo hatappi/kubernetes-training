@@ -10,7 +10,7 @@ metadata:
   namespace: q7
 spec:
   containers:
-  - image: hatappi/k8s-training:v1.0
+  - image: hatappi/k8s-training:v1.3
     name: enc
     args:
       - enc-dec
@@ -21,7 +21,7 @@ spec:
     volumeMounts:
     - mountPath: /k8s-training
       name: shared-volume
-  - image: hatappi/k8s-training:v1.0
+  - image: hatappi/k8s-training:v1.3
     name: dec
     args:
       - enc-dec

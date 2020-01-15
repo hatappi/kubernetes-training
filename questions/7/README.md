@@ -6,13 +6,13 @@
 	- containerを2つ用意する
 		- name: `enc`
 			- `shared-volume` を `/k8s-training` にマウント
-			- image: `hatappi/k8s-training:v1.0`
+			- image: `hatappi/k8s-training:v1.3`
 			- CMD: `enc-dec store_file_path`
 			- env
 				- STORE_FILE_PATH: `/k8s-training/message.log`
 		- name: `dec`
 			- `shared-volume` を `/k8s-training` にマウント
-			- image: `hatappi/k8s-training:v1.0`
+			- image: `hatappi/k8s-training:v1.3`
 			- CMD: `enc-dec print-decode-message`
 			- env
 				- STORE_FILE_PATH: `/k8s-training/message.log`

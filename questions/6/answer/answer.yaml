@@ -24,7 +24,7 @@ spec:
   template:
     spec:
       containers:
-      - image: hatappi/k8s-training:v1.0
+      - image: hatappi/k8s-training:v1.3
         name: print-file-message
         args:
           - print-file-message
