@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: q6
+---
+# kubectl create -n q6 configmap message-config --from-file=./config.json
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: message-config
+  namespace: q6
+data:
+  config.json: |
+    {
+      "message": "良いお年を!!!"
+    }
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: print-file-message
+  namespace: q6
+spec:
+  template:
+    spec:
+      containers:
+      - image: hatappi/k8s-training:v1.0
+        name: print-file-message
+        args:
+          - print-file-message
+        env:
+          - name: JSON_FILE_PATH
+            value: "/tmp/config.json"
+        volumeMounts:
+        - name: message-config-volume
+          mountPath: /tmp
+      restartPolicy: OnFailure
+      volumes:
+        - name: message-config-volume
+          configMap:
+            name: message-config
+status: {}
