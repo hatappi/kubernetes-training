@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: q1
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: http-server
+  name: http-server
+  namespace: q1
+spec:
+  containers:
+  - image: hatappi/k8s-training:v1.3
+    name: http-server
+    args:
+      - http-server
+    ports:
+      - containerPort: 8888
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
+
