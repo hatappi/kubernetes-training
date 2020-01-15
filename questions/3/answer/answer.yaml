@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: q3
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: print-repeat-message
+  namespace: q3
+spec:
+  template:
+    spec:
+      containers:
+      - image: hatappi/k8s-training:v1.3
+        name: print-repeat-message
+        args:
+          - print-repeat-message
+        env:
+          - name: REPEAT_NUM
+            value: "10"
+        resources: {}
+      restartPolicy: OnFailure
+status: {}
+
