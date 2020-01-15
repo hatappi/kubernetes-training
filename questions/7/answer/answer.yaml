@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: q7
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: enc-dec
+  namespace: q7
+spec:
+  containers:
+  - image: hatappi/k8s-training:v1.0
+    name: enc
+    args:
+      - enc-dec
+      - store-encode-message
+    env:
+      - name: STORE_FILE_PATH
+        value: "/k8s-training/message.log"
+    volumeMounts:
+    - mountPath: /k8s-training
+      name: shared-volume
+  - image: hatappi/k8s-training:v1.0
+    name: dec
+    args:
+      - enc-dec
+      - print-decode-message
+    env:
+      - name: STORE_FILE_PATH
+        value: "/k8s-training/message.log"
+    volumeMounts:
+    - mountPath: /k8s-training
+      name: shared-volume
+  volumes:
+  - name: shared-volume
+    emptyDir: {}

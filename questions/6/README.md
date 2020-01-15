@@ -8,7 +8,7 @@
 	- ConfigMap: `message-config` を使って config.json を `/tmp/config.json` に配置する
 	- env
 		- JSON_FILE_PATH: /tmp/config.json
-- 正しく設定できているかどうかは `./scripts/check.sh q1` を実行することで確認できます
+- 正しく設定できているかどうかは `./scripts/check.sh q6` を実行することで確認できます
 
 ## English
 
