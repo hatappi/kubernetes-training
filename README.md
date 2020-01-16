@@ -44,7 +44,9 @@ $ ./scripts/check.sh sample
 ```
 
 ### 問題に取り組む
-
+問題は [questions](./questions) ディレクトリ配下の各番号のディレクトリに配置してあります。  
+README.md に問題があるので解きます。  
+解答は問題番号のディレクトリ配下の answer ディレクトリに Kubernetes の YAML ファイルや README.md の形でおいてあります。
 
 ## English
 TBD
